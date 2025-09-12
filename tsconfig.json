@@ -8,8 +8,9 @@
     "removeComments": true,
     "declaration": true,
     "lib": ["esnext", "dom"],
-    "isolatedModules": true
+    "isolatedModules": true,
+    "jsx": "react-jsx"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src", "src/index.tsx"],
   "exclude": ["node_modules"]
 }
