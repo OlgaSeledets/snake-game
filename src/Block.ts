@@ -12,10 +12,10 @@ export abstract class Block implements IBlock {
   }
 }
 
-export class GrassBlock extends Block {
+export class StoneBlock extends Block {
   constructor(posXcl: number, posYcl: number) {
-    super("grass", posXcl, posYcl)
+    super("stone", posXcl, posYcl)
   }
 }
 
-const newGrassBlock = new GrassBlock(2, 3)
+// const newGrassBlock = new GrassBlock(2, 3)

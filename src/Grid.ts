@@ -13,7 +13,7 @@ export class Grid implements IGrid {
 
   *getCells(): Generator<{ posXcl: number; posYcl: number }> {
     for (let posXcl = 0; posXcl < this.sizeXcl; posXcl++) {
-      for (let posYcl = 0; posYcl < this.sizeXcl; posYcl++) {
+      for (let posYcl = 0; posYcl < this.sizeYcl; posYcl++) {
         yield { posXcl, posYcl }
       }
     }
