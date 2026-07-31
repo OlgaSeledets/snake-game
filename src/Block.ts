@@ -10,6 +10,13 @@ export abstract class Block implements IBlock {
     this.posXcl = posXcl
     this.posYcl = posYcl
   }
+
+  generationBlockPosition(gridSizeYcl: number, gridSizeXcl: number) {
+    const maxXcl = Math.floor(gridSizeXcl)
+    const maxYcl = Math.floor(gridSizeYcl)
+    this.posXcl = Math.floor(Math.random() * maxXcl)
+    this.posYcl = Math.floor(Math.random() * maxYcl)
+  }
 }
 
 export class StoneBlock extends Block {

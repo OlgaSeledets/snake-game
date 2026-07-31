@@ -12,11 +12,10 @@ export abstract class Food implements IFood {
   }
 
   generationFoodPosition(gridSizeYcl: number, gridSizeXcl: number) {
-    const min = 0
-    const maxYcl = Math.floor(gridSizeYcl)
     const maxXcl = Math.floor(gridSizeXcl)
-    this.posYcl = Math.floor(Math.random() * (maxYcl - min)) + min
-    this.posXcl = Math.floor(Math.random() * (maxXcl - min)) + min
+    const maxYcl = Math.floor(gridSizeYcl)
+    this.posXcl = Math.floor(Math.random() * maxXcl)
+    this.posYcl = Math.floor(Math.random() * maxYcl)
   }
 }
 
