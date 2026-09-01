@@ -41,40 +41,206 @@ export default function MenuPage({
 			display: "flex",
 			flexDirection: "column",
 			alignItems: "center",
-			marginTop: "30px",
-			rowGap: "10px",
-			width: '500px',
-			backgroundColor: 'lightcyan',
 			margin: '0 auto',
 		}}>
-			<h1>Snake Game</h1>
-			<div style={{ display: "flex", gap: "20px", marginBottom: "30px" }}>
-				<span>The best SCORE</span>
-				<span>{localStorage.getItem("theBestScore")}</span>
-			</div>
+			<img style={{ width: '684px', height: '228px' }} src="/src/pictures/logo-snake.png" />
+			<div
+				style={{
+					position: 'absolute',
+					marginTop: '185px',
+					padding: '8px',
+					width: '285px',
+					height: '80px',
+					boxSizing: 'border-box',
+					color: '#caff00',
+					textAlign: 'center',
+					background: 'rgba(0, 18, 25, 0.5)',
+					clipPath: 'polygon(0 0, 100% 0, 92% 100%, 8% 100%)',
+					// borderRadius: '25px',
+				}}
+			>
+				<div>
+					<span>★</span>
+					<span style={{ margin: '0 12px' }}>BEST SCORE</span>
+					<span>★</span>
+				</div>
 
-			<div style={{ width: "250px", border: "1px solid black" }}>
-				<div style={{ display: "flex", gap: "25px", justifyContent: "space-between" }}>
-					<label>SizeX cl</label>
-					<input type="number" min="5" max="40" step="1" value={sizeXFromLocalStorage} onChange={(event) => {
-						setSizeXFromLocalStorage(Number(event.target.value))
-					}} />
+				<div
+					style={{
+						fontSize: '42px',
+						fontWeight: 700,
+						lineHeight: 1.1,
+					}}
+				>
+					{localStorage.getItem("theBestScore")}
 				</div>
-				<div style={{ display: "flex", gap: "25px", justifyContent: "space-between" }}>
-					<label>SizeY cl</label>
-					<input type="number" min="5" max="40" step="1" value={sizeYFromLocalStorage} onChange={(event) => {
-						setSizeYFromLocalStorage(Number(event.target.value))
-					}} />
-				</div>
-				<div style={{ display: "flex", gap: "25px", justifyContent: "space-between" }}>
-					<label>CellSize px</label>
-					<input type="number" min="5" max="40" step="1" value={cellSizePxFromLocalStorage} onChange={(event) => {
-						setCellSizePxFromLocalStorage(Number(event.target.value))
-					}} />
-				</div>
-				{/*Теперь и в GamePage надо прописывать условия получать из локального хранилища размеры или нет? Насколько этот вариант хорош?*/}
 			</div>
-			<button onClick={() => handleApply()}>Apply</button>
+			<div style={{
+				width: '490px',
+				height: '224px',
+				background: '#001219',
+				marginTop: '65px',
+				borderRadius: '25px',
+				boxShadow: '0px 4px 10px 0px rgba(0, 187, 255, 0.5)',
+			}}>
+				<div style={{
+					display: 'flex',
+					flexDirection: 'row',
+					alignItems: 'center',
+					justifyContent: 'space-around',
+				}}>
+					<line style={{
+						width: '84px',
+						height: '1px',
+						backgroundColor: '#02ACE4',
+					}} />
+					<div style={{
+						display: 'flex',
+						alignItems: 'center',
+						gap: '10px',
+					}}>
+						<img style={{ width: '33px', height: '33px' }} src="/src/pictures/settings.png" />
+						<h2 style={{ fontSize: '20px', color: '#02ACE4' }}>GAME SETTINGS</h2>
+					</div>
+					<line style={{
+						width: '84px',
+						height: '1px',
+						backgroundColor: '#02ACE4',
+					}} />
+				</div>
+				<div style={{ padding: '0px 20px 0 13px', display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
+					<div style={{ display: 'flex', alignItems: 'center' }}>
+						<img style={{ width: '43px', height: '43px' }} src="/src/pictures/sizeX.png" />
+						<div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
+							<span style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600 }}>Columns</span>
+							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid width (number of columns)</span>
+						</div>
+						<div style={{ display: 'flex', marginLeft: 'auto' }}>
+							<button style={{
+								width: '42px',
+								border: 'none',
+								background: '#061b24',
+								color: '#8fd9f0',
+								fontSize: '22px',
+								cursor: 'pointer'
+							}}
+							onClick={() => setSizeXFromLocalStorage(v => Math.max(5, v - 1))}>
+								−
+							</button>
+							<div style={{
+								width: '70px',
+								textAlign: 'center',
+								background: '#03151d',
+								color: '#bfff00',
+								fontSize: '24px',
+								fontWeight: 700,
+								padding: '8px',
+							}}>
+								{sizeXFromLocalStorage}
+							</div>
+							<button style={{
+								width: '42px',
+								border: 'none',
+								background: '#061b24',
+								color: '#8fd9f0',
+								fontSize: '22px',
+								cursor: 'pointer'
+							}}
+							onClick={() => setSizeXFromLocalStorage(v => v + 1)}>
+								+
+							</button>
+						</div>
+					</div>
+					<div style={{ display: 'flex', alignItems: 'center' }}>
+						<img style={{ width: '43px', height: '43px' }} src="/src/pictures/sizeY.png" />
+						<div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
+							<span style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600 }}>Rows</span>
+							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid height (number of rows)</span>
+						</div>
+						<div style={{ display: 'flex', marginLeft: 'auto' }}>
+							<button style={{
+								width: '42px',
+								border: 'none',
+								background: '#061b24',
+								color: '#8fd9f0',
+								fontSize: '22px',
+								cursor: 'pointer'
+							}}
+							onClick={() => setSizeYFromLocalStorage(v => Math.max(5, v - 1))}>
+								−
+							</button>
+							<div style={{
+								width: '70px',
+								textAlign: 'center',
+								background: '#03151d',
+								color: '#bfff00',
+								fontSize: '24px',
+								fontWeight: 700,
+								padding: '8px',
+							}}>
+								{sizeYFromLocalStorage}
+							</div>
+							<button style={{
+								width: '42px',
+								border: 'none',
+								background: '#061b24',
+								color: '#8fd9f0',
+								fontSize: '22px',
+								cursor: 'pointer'
+							}}
+							onClick={() => setSizeYFromLocalStorage(v => v + 1)}>
+								+
+							</button>
+						</div>
+					</div>
+					<div style={{ display: 'flex', alignItems: 'center' }}>
+						<img style={{ width: '43px', height: '43px' }} src="/src/pictures/cellPx.png" />
+						<div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
+							<span style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600 }}>Cells</span>
+							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Size of each cell in pixels</span>
+						</div>
+						<div style={{ display: 'flex', marginLeft: 'auto' }}>
+							<button style={{
+								width: '42px',
+								border: 'none',
+								background: '#061b24',
+								color: '#8fd9f0',
+								fontSize: '22px',
+								cursor: 'pointer'
+							}}
+							onClick={() => setCellSizePxFromLocalStorage(v => Math.max(5, v - 1))}>
+								−
+							</button>
+							<div style={{
+								width: '70px',
+								textAlign: 'center',
+								background: '#03151d',
+								color: '#bfff00',
+								fontSize: '24px',
+								fontWeight: 700,
+								padding: '8px',
+							}}>
+								{cellSizePxFromLocalStorage}
+							</div>
+							<button style={{
+								width: '42px',
+								border: 'none',
+								background: '#061b24',
+								color: '#8fd9f0',
+								fontSize: '22px',
+								cursor: 'pointer'
+							}}
+							onClick={() => setCellSizePxFromLocalStorage(v => v + 1)}>
+								+
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button className="playBtn" onClick={() => handleApply()}>
+				<img style={{ width: '52px', height: '52px' }} src="/src/pictures/play.png" />
+				PLAY
+			</button>
 		</div>
 	)
 }

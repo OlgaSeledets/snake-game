@@ -1,3 +1,38 @@
+* {
+    box-sizing: 'border-box',
+}
+
+body {
+    background-image: url('/src/pictures/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.playBtn {
+    font-size: 32px;
+    color: #B2E904;
+    box-shadow: inset 0px 4px 30px 0px #B2E904;
+    background: rgba(0, 18, 25, 0.5);
+    width: 237px;
+    height: 71px;
+    border-radius: 25px;
+    border: 3px solid #B2E904;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 27px;
+}
+
+.playBtn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background: rgba(0, 18, 25, 0.8);
+    box-shadow: inset 0px 6px 40px 0px #B2E904, 0 0 20px rgba(178, 233, 4, 0.4);
+}
+
 .gameBtn {
     margin-top: 30px;
     font-size: 20px;
