@@ -124,7 +124,7 @@ export default function MenuPage({
 								fontSize: '22px',
 								cursor: 'pointer'
 							}}
-							onClick={() => setSizeXFromLocalStorage(v => Math.max(5, v - 1))}>
+								onClick={() => setSizeXFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
 							</button>
 							<div style={{
@@ -146,7 +146,7 @@ export default function MenuPage({
 								fontSize: '22px',
 								cursor: 'pointer'
 							}}
-							onClick={() => setSizeXFromLocalStorage(v => v + 1)}>
+								onClick={() => setSizeXFromLocalStorage(v => v + 1)}>
 								+
 							</button>
 						</div>
@@ -166,7 +166,7 @@ export default function MenuPage({
 								fontSize: '22px',
 								cursor: 'pointer'
 							}}
-							onClick={() => setSizeYFromLocalStorage(v => Math.max(5, v - 1))}>
+								onClick={() => setSizeYFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
 							</button>
 							<div style={{
@@ -188,7 +188,7 @@ export default function MenuPage({
 								fontSize: '22px',
 								cursor: 'pointer'
 							}}
-							onClick={() => setSizeYFromLocalStorage(v => v + 1)}>
+								onClick={() => setSizeYFromLocalStorage(v => v + 1)}>
 								+
 							</button>
 						</div>
@@ -208,7 +208,7 @@ export default function MenuPage({
 								fontSize: '22px',
 								cursor: 'pointer'
 							}}
-							onClick={() => setCellSizePxFromLocalStorage(v => Math.max(5, v - 1))}>
+								onClick={() => setCellSizePxFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
 							</button>
 							<div style={{
@@ -230,7 +230,7 @@ export default function MenuPage({
 								fontSize: '22px',
 								cursor: 'pointer'
 							}}
-							onClick={() => setCellSizePxFromLocalStorage(v => v + 1)}>
+								onClick={() => setCellSizePxFromLocalStorage(v => v + 1)}>
 								+
 							</button>
 						</div>
@@ -241,6 +241,34 @@ export default function MenuPage({
 				<img style={{ width: '52px', height: '52px' }} src="/src/pictures/play.png" />
 				PLAY
 			</button>
+			<div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+				<div style={{
+					width: '304px',
+					height: '65px',
+					background: 'rgba(0, 18, 25, 0.5)',
+					borderRadius: '25px',
+					boxShadow: '0px 4px 10px 0px rgba(0, 187, 255, 0.5)',
+					marginLeft: '92px'
+				}}>
+					<div style={{ display: 'flex', alignItems: 'center', padding: '12px', gap: '18px' }}>
+						<img style={{ width: '43px', height: '43px' }} src="/src/pictures/information.png" />
+						<span style={{ fontSize: '16px', color: '#4D575E', fontWeight: 600 }}>Use arrow keys to control the snake and eat food</span>
+					</div>
+				</div>
+				<div style={{
+					width: '248px',
+					height: '65px',
+					background: 'rgba(0, 18, 25, 0.5)',
+					borderRadius: '25px',
+					boxShadow: '0px 4px 10px 0px rgba(0, 187, 255, 0.5)',
+					marginRight: '92px'
+				}}>
+					<div style={{ display: 'flex', alignItems: 'center', padding: '0 35px', gap: '18px' }}>
+						<img style={{ width: '73px', height: '73px' }} src="/src/pictures/arrows.png" />
+						<span style={{ fontSize: '16px', color: '#4D575E', fontWeight: 600 }}>Arrow keys to move</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }
