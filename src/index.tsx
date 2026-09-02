@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/snake-game">
       <App game={new SnakeGame(new Grid(20, 20, 24), new AppleFood(5, 4), new StoneBlock(2, 3), new Snake(4, 13, 3))} />
     </BrowserRouter>
   </StrictMode>,
