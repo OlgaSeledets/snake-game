@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "tsc",
-    "lint": "eslint .",
-    "pack": "vite build"
+    "build": "vite build",
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "19.1.1",
