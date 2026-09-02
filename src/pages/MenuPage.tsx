@@ -43,7 +43,7 @@ export default function MenuPage({
 			alignItems: "center",
 			margin: '0 auto',
 		}}>
-			<img style={{ width: '684px', height: '228px' }} src="/public/img/logo-snake.png" />
+			<img style={{ width: '684px', height: '228px' }} src={`${import.meta.env.BASE_URL}img/logo-snake.png`} />
 			<div
 				style={{
 					position: 'absolute',
@@ -99,7 +99,7 @@ export default function MenuPage({
 						alignItems: 'center',
 						gap: '10px',
 					}}>
-						<img style={{ width: '33px', height: '33px' }} src="/public/img/settings.png" />
+						<img style={{ width: '33px', height: '33px' }} src={`${import.meta.env.BASE_URL}img/settings.png`} />
 						<h2 style={{ fontSize: '20px', color: '#02ACE4' }}>GAME SETTINGS</h2>
 					</div>
 					<line style={{
@@ -110,7 +110,7 @@ export default function MenuPage({
 				</div>
 				<div style={{ padding: '0px 20px 0 13px', display: 'flex', flexDirection: 'column', rowGap: '10px' }}>
 					<div style={{ display: 'flex', alignItems: 'center' }}>
-						<img style={{ width: '43px', height: '43px' }} src="/public/img/sizeX.png" />
+						<img style={{ width: '43px', height: '43px' }} src={`${import.meta.env.BASE_URL}img/sizeX.png`} />
 						<div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
 							<span style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600 }}>Columns</span>
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid width (number of columns)</span>
@@ -152,7 +152,7 @@ export default function MenuPage({
 						</div>
 					</div>
 					<div style={{ display: 'flex', alignItems: 'center' }}>
-						<img style={{ width: '43px', height: '43px' }} src="/public/img/sizeY.png" />
+						<img style={{ width: '43px', height: '43px' }} src={`${import.meta.env.BASE_URL}img/sizeY.png`} />
 						<div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
 							<span style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600 }}>Rows</span>
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid height (number of rows)</span>
@@ -194,7 +194,7 @@ export default function MenuPage({
 						</div>
 					</div>
 					<div style={{ display: 'flex', alignItems: 'center' }}>
-						<img style={{ width: '43px', height: '43px' }} src="/public/img/cellPx.png" />
+						<img style={{ width: '43px', height: '43px' }} src={`${import.meta.env.BASE_URL}img/cellPx.png`} />
 						<div style={{ display: 'flex', flexDirection: 'column', marginLeft: '5px' }}>
 							<span style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 600 }}>Cells</span>
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Size of each cell in pixels</span>
@@ -238,7 +238,7 @@ export default function MenuPage({
 				</div>
 			</div>
 			<button className="playBtn" onClick={() => handleApply()}>
-				<img style={{ width: '52px', height: '52px' }} src="/public/img/play.png" />
+				<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/play.png`} />
 				PLAY
 			</button>
 			<div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
@@ -251,7 +251,7 @@ export default function MenuPage({
 					marginLeft: '92px'
 				}}>
 					<div style={{ display: 'flex', alignItems: 'center', padding: '12px', gap: '18px' }}>
-						<img style={{ width: '43px', height: '43px' }} src="/public/img/information.png" />
+						<img style={{ width: '43px', height: '43px' }} src={`${import.meta.env.BASE_URL}img/information.png`} />
 						<span style={{ fontSize: '16px', color: '#4D575E', fontWeight: 600 }}>Use arrow keys to control the snake and eat food</span>
 					</div>
 				</div>
@@ -264,7 +264,7 @@ export default function MenuPage({
 					marginRight: '92px'
 				}}>
 					<div style={{ display: 'flex', alignItems: 'center', padding: '0 35px', gap: '18px' }}>
-						<img style={{ width: '73px', height: '73px' }} src="/public/img/arrows.png" />
+						<img style={{ width: '73px', height: '73px' }} src={`${import.meta.env.BASE_URL}img/arrows.png`} />
 						<span style={{ fontSize: '16px', color: '#4D575E', fontWeight: 600 }}>Arrow keys to move</span>
 					</div>
 				</div>
