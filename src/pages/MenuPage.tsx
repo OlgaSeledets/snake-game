@@ -237,7 +237,7 @@ export default function MenuPage({
 					</div>
 				</div>
 			</div>
-			<button className="playBtn" onClick={() => handleApply()}>
+			<button className="gameBtn gameBtn--play" onClick={() => handleApply()}>
 				<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/play.png`} />
 				PLAY
 			</button>

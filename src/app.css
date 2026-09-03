@@ -11,38 +11,58 @@ body {
     margin: 0;
 }
 
-.playBtn {
+.gameBtn {
     font-size: 32px;
     color: #B2E904;
     box-shadow: inset 0px 4px 30px 0px #B2E904;
     background: rgba(0, 18, 25, 0.5);
-    width: 237px;
-    height: 71px;
     border-radius: 25px;
     border: 3px solid #B2E904;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 27px;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.playBtn:hover {
+.gameBtn:hover {
     cursor: pointer;
     transform: scale(1.05);
     background: rgba(0, 18, 25, 0.8);
     box-shadow: inset 0px 6px 40px 0px #B2E904, 0 0 20px rgba(178, 233, 4, 0.4);
 }
 
-.gameBtn {
-    margin-top: 30px;
-    font-size: 20px;
-    background-color: white;
-    border: 1px solid black;
-    padding: 5px 20px;
-    cursor: pointer;
+.gameBtn--play {
+    width: 237px;
+    height: 71px;
 }
 
-.gameBtn:hover {
-    background-color: black;
-    color: white;
+.gameBtn--start {
+    width: 278px;
+    height: 71px;
+}
+
+.loadGameBtn {
+    width: 278px;
+    height: 71px;
+    border: 3px solid #24D6DD;
+    background: rgba(0, 18, 25, 0.8);
+    box-shadow: inset 0px 4px 30px 0px #24D6DD;
+    font-size: 24px;
+    color: #24D6DD;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-top: 27px;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    gap: 8px;
+}
+
+.loadGameBtn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background: rgba(0, 18, 25, 0.8);
+    box-shadow: inset 0px 6px 40px 0px #24D6DD, 0 0 20px rgba(36, 214, 221, 0.4);
 }

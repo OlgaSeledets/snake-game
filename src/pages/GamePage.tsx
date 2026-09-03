@@ -112,9 +112,25 @@ export default function GamePage({
 	}
 
 	return (
-		<div style={{ display: "flex", alignItems: "center", flexDirection: "column", margin: "0 auto" }}>
-			<nav>
+		<div style={{ display: "flex", alignItems: "center", flexDirection: "column", margin: "0 auto", padding: '40px 45px' }}>
+			<div style={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', }}>
 				<Link
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						width: '130px',
+						height: '48px',
+						gap: '5px',
+						backgroundColor: '#000711',
+						border: '0.8px solid #025671',
+						borderRadius: '15px',
+						color: '#FFFFFF',
+						fontSize: '16px',
+						textDecoration: 'none',
+						cursor: 'pointer',
+						flexShrink: 0,
+					}}
 					to="/"
 					onClick={() => {
 						const theBestScore = localStorage.getItem("theBestScore")
@@ -126,69 +142,161 @@ export default function GamePage({
 						}
 						restartGame()
 					}}>
-					Menu
+					<img
+						src={`${import.meta.env.BASE_URL}img/home.png`}
+						alt="Menu"
+						style={{ width: '40px', height: '40px' }}
+					/>
+					<span>MENU</span>
 				</Link>
-			</nav>
-			<div style={{ display: "flex", gap: "20px", marginBottom: "30px" }}>
-				<span>SCORE</span>
-				<span>{game.score}</span>
+				<img
+					style={{
+						width: '455px',
+						height: '152px',
+						position: 'absolute',
+						left: '50%',
+						transform: 'translateX(-50%)',
+					}}
+					src={`${import.meta.env.BASE_URL}img/logo-snake.png`}
+				/>
 			</div>
-			<div style={{ position: "relative", width: `${gridSizeXpx}px`, height: `${gridSizeYpx}px`, backgroundColor: "green" }}>
-				{game.grid.getCells().map((x, i) => (
-					<div key={i} style={{
-						position: "absolute",
-						left: `${x.posXcl * cellSizePx}px`,
-						top: `${x.posYcl * cellSizePx}px`,
-						width: `${cellSizePx}px`,
-						height: `${cellSizePx}px`,
-						border: "1px solid black",
-						fontSize: "6px"
-					}} />
-				))}
+			<div style={{
+				display: "flex",
+				flexDirection: 'column',
+				alignItems: 'center',
+				margin: '25px 0',
+				paddingTop: '8px',
+				width: '228px',
+				height: '60px',
+				border: '0.8px solid #025671',
+				borderRadius: '15px',
+				backgroundColor: '#001219'
+			}}>
+				<span style={{ color: '#FFFFFF', fontSize: '16px' }}>SCORE</span>
+				<span style={{ fontSize: '32px', color: '#B2E904' }}>{game.score}</span>
+			</div>
+			<div style={{ display: 'flex', gap: '35px', alignItems: 'flex-start' }}>
 				<div style={{
-					position: "absolute",
-					left: `${game.food.posXcl * cellSizePx + cellSizePx / 4}px`,
-					top: `${game.food.posYcl * cellSizePx + cellSizePx / 4}px`,
-					width: `${cellSizePx / 2}px`,
-					height: `${cellSizePx / 2}px`,
-					backgroundColor: "red",
-					borderRadius: "50%"
-				}} />
-				<div style={{
-					position: "absolute",
-					left: `${game.block.posXcl * cellSizePx}px`,
-					top: `${game.block.posYcl * cellSizePx}px`,
-					width: `${cellSizePx}px`,
-					height: `${cellSizePx}px`,
-					backgroundColor: "gray"
-				}} />
-				{parts.map((part, i) => (
-					<div key={i} style={{
-						position: "absolute",
-						left: `${part.posXcl * cellSizePx}px`,
-						top: `${part.posYcl * cellSizePx}px`,
-						width: `${cellSizePx}px`,
-						height: `${cellSizePx}px`,
-						backgroundColor: part.type === "head" ? "darkBlue" : "blue",
-						borderRadius: "50%"
-					}}>
-						{part.type === "head" ? "👀" : part.type === "tail" ? "*" : ""}
+					display: 'flex',
+					flexDirection: 'column',
+					gap: '30px',
+					width: '196px',
+					background: '#001219',
+					padding: '15px',
+					border: '1px solid #5F7D00',
+					borderRadius: '15px'
+				}}>
+					<div style={{ display: 'flex', gap: '20px' }}>
+						<img style={{ width: '50px', height: '50px' }} src={`${import.meta.env.BASE_URL}img/best-score.png`} />
+						<div style={{ display: 'flex', flexDirection: 'column', paddingTop: '6px' }}>
+							<span style={{ color: '#FFFFFF', fontSize: '14px' }}>BEST SCORE</span>
+							<span style={{ color: '#B2E904', fontSize: '24px' }}>{localStorage.getItem("theBestScore")}</span>
+						</div>
 					</div>
-				))}
+					<line style={{
+						position: 'absolute',
+						width: '145px',
+						height: '0.8px',
+						backgroundColor: '#5F7D00',
+					}} />
+					<div style={{ display: 'flex', gap: '20px' }}>
+						<img style={{ width: '50px', height: '50px' }} src={`${import.meta.env.BASE_URL}img/snake.png`} />
+						<div style={{ display: 'flex', flexDirection: 'column', paddingTop: '6px' }}>
+							<span style={{ color: '#FFFFFF', fontSize: '14px' }}>SNAKE LENGTH</span>
+							<span style={{ color: '#B2E904', fontSize: '24px' }}>{game.snake.getLength()}</span>
+						</div>
+					</div>
+					<line style={{
+						position: 'absolute',
+						width: '145px',
+						height: '0.8px',
+						backgroundColor: '#5F7D00',
+					}} />
+					<div style={{ display: 'flex', gap: '20px' }}>
+						<img style={{ width: '50px', height: '50px' }} src={`${import.meta.env.BASE_URL}img/apple.png`} />
+						<div style={{ display: 'flex', flexDirection: 'column', paddingTop: '6px' }}>
+							<span style={{ color: '#FFFFFF', fontSize: '14px' }}>FOOD EATEN</span>
+							<span style={{ color: '#B2E904', fontSize: '24px' }}>test</span>
+						</div>
+					</div>
+				</div>
+				<div style={{
+					border: '2px solid #B2E904',
+					borderRadius: '15px',
+					padding: '7px',
+					backgroundColor: '#001219'
+				}}>
+					<div style={{ position: "relative", width: `${gridSizeXpx}px`, height: `${gridSizeYpx}px`, backgroundColor: "green" }}>
+						{game.grid.getCells().map((x, i) => (
+							<div key={i} style={{
+								position: "absolute",
+								left: `${x.posXcl * cellSizePx}px`,
+								top: `${x.posYcl * cellSizePx}px`,
+								width: `${cellSizePx}px`,
+								height: `${cellSizePx}px`,
+								border: "1px solid black",
+								fontSize: "6px"
+							}} />
+						))}
+						<img
+							src={`${import.meta.env.BASE_URL}img/apple-food.png`}
+							alt="apple"
+							style={{
+								position: "absolute",
+								left: `${game.food.posXcl * cellSizePx + ((cellSizePx - cellSizePx / 1.4) / 2)}px`,
+								top: `${game.food.posYcl * cellSizePx + ((cellSizePx - cellSizePx / 1.4) / 2)}px`,
+								width: `${cellSizePx / 1.4}px`,
+								height: `${cellSizePx / 1.4}px`
+							}}
+						/>
+						<img
+							src={`${import.meta.env.BASE_URL}img/stone.png`}
+							alt="stone"
+							style={{
+								position: "absolute",
+								left: `${game.block.posXcl * cellSizePx + 1}px`,
+								top: `${game.block.posYcl * cellSizePx + 1}px`,
+								width: `${cellSizePx}px`,
+								height: `${cellSizePx}px`,
+							}}
+						/>
+						{parts.map((part, i) => (
+							<div key={i} style={{
+								position: "absolute",
+								left: `${part.posXcl * cellSizePx}px`,
+								top: `${part.posYcl * cellSizePx}px`,
+								width: `${cellSizePx}px`,
+								height: `${cellSizePx}px`,
+								backgroundColor: part.type === "head" ? "darkBlue" : "blue",
+								borderRadius: "50%"
+							}}>
+								{part.type === "head" ? "👀" : part.type === "tail" ? "*" : ""}
+							</div>
+						))}
+					</div>
+				</div>
+				<div style={{ width: '196px' }}>
+
+				</div>
 			</div>
 			{isBtnStartVisible ? (
-				<div>
+				<div style={{ display: 'flex', gap: '25px' }}>
 					<button
-						className="gameBtn"
+						className="gameBtn gameBtn--start"
 						onClick={() => {
 							setBtnStartIsVisible(false)
 							setStart(true)
 						}}
 					>
-						Start GAME
+						<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/play.png`} />
+						START GAME
 					</button>
-					<button className="gameBtn" onClick={() => setIsDownloadFromFile(true)}>
-						Download from file
+					<button className="loadGameBtn" onClick={() => setIsDownloadFromFile(true)}>
+						<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/load-game.png`} />
+						<div style={{ display: 'flex', flexDirection: 'column' }}>
+							<span style={{ color: '#24D6DD', fontSize: '24px' }}>LOAD GAME</span>
+							<span style={{ color: '#47B3B3', fontSize: '16px' }}>Load from file</span>
+						</div>
 					</button>
 				</div>
 			) : (
