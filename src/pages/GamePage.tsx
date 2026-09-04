@@ -265,12 +265,16 @@ export default function GamePage({
 								position: "absolute",
 								left: `${part.posXcl * cellSizePx}px`,
 								top: `${part.posYcl * cellSizePx}px`,
-								width: `${cellSizePx}px`,
-								height: `${cellSizePx}px`,
-								backgroundColor: part.type === "head" ? "darkBlue" : "blue",
-								borderRadius: "50%"
+								// width: `${cellSizePx}px`,
+								// height: `${cellSizePx}px`,
+								// backgroundColor: part.type === "head" ? "darkBlue" : "blue",
+								// borderRadius: "50%"
 							}}>
-								{part.type === "head" ? "👀" : part.type === "tail" ? "*" : ""}
+								{part.type === "head"
+									? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/head.png`} />
+									: part.type === "tail"
+										? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/tail.png`} />
+										: <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/body.png`} />}
 							</div>
 						))}
 					</div>
@@ -325,12 +329,18 @@ export default function GamePage({
 				</div>
 			) : (
 				<button
+					style={{
+						display: 'flex',
+						gap: '10px',
+						padding: '10px'
+					}}
 					className="gameBtn"
 					onClick={() => {
 						restartGame()
 						setBtnStartIsVisible(true)
 					}}
 				>
+					<img style={{ width: '32px', height: '32px' }} src={`${import.meta.env.BASE_URL}img/restart.png`} />
 					RESTART
 				</button>
 			)}
