@@ -194,7 +194,7 @@ export default function GamePage({
 						</div>
 					</div>
 					<line style={{
-						position: 'absolute',
+						margin: 'auto',
 						width: '145px',
 						height: '0.8px',
 						backgroundColor: '#5F7D00',
@@ -207,7 +207,7 @@ export default function GamePage({
 						</div>
 					</div>
 					<line style={{
-						position: 'absolute',
+						margin: 'auto',
 						width: '145px',
 						height: '0.8px',
 						backgroundColor: '#5F7D00',
@@ -275,8 +275,32 @@ export default function GamePage({
 						))}
 					</div>
 				</div>
-				<div style={{ width: '196px' }}>
-
+				<div style={{
+					display: 'flex',
+					flexDirection: 'column',
+					gap: '30px',
+					width: '196px',
+					background: '#001219',
+					padding: '15px',
+					border: '1px solid #025671',
+					borderRadius: '15px'
+				}}>
+					<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px' }}>
+						<img style={{ width: '30px', height: '30px' }} src={`${import.meta.env.BASE_URL}img/how-to-play.png`} />
+						<span style={{ color: '#04F9FC', fontSize: '16px' }}>HOW TO PLAY</span>
+					</div>
+					<div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+						<img style={{ width: '53px', height: '53px' }} src={`${import.meta.env.BASE_URL}img/arrows.png`} />
+						<span style={{ color: '#FFFFFF', fontSize: '16px' }}>Use arrow keys to move</span>
+					</div>
+					<div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+						<img style={{ width: '50px', height: '50px' }} src={`${import.meta.env.BASE_URL}img/apple-food.png`} />
+						<span style={{ color: '#FFFFFF', fontSize: '16px' }}>Eat food to grow longer</span>
+					</div>
+					<div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+						<img style={{ width: '50px', height: '50px' }} src={`${import.meta.env.BASE_URL}img/stone.png`} />
+						<span style={{ color: '#FFFFFF', fontSize: '16px' }}>Avoid hitting the stone or yourself</span>
+					</div>
 				</div>
 			</div>
 			{isBtnStartVisible ? (
