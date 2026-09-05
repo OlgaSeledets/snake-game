@@ -26,7 +26,7 @@ export class SnakeGame implements ISnakeGame {
     this.food = food
     this.block = block
     this.snake = snake
-    this.score = 3
+    this.score = 0
     this.score2 = ""
     this.speed = 200
     this.gameOver = false

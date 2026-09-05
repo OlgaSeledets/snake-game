@@ -216,7 +216,7 @@ export default function GamePage({
 						<img style={{ width: '50px', height: '50px' }} src={`${import.meta.env.BASE_URL}img/apple.png`} />
 						<div style={{ display: 'flex', flexDirection: 'column', paddingTop: '6px' }}>
 							<span style={{ color: '#FFFFFF', fontSize: '14px' }}>FOOD EATEN</span>
-							<span style={{ color: '#B2E904', fontSize: '24px' }}>test</span>
+							<span style={{ color: '#B2E904', fontSize: '24px' }}>{game.score}</span>
 						</div>
 					</div>
 				</div>
