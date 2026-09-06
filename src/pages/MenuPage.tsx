@@ -116,14 +116,8 @@ export default function MenuPage({
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid width (number of columns)</span>
 						</div>
 						<div style={{ display: 'flex', marginLeft: 'auto' }}>
-							<button style={{
-								width: '42px',
-								border: 'none',
-								background: '#061b24',
-								color: '#8fd9f0',
-								fontSize: '22px',
-								cursor: 'pointer'
-							}}
+							<button
+								className="counterBtn"
 								onClick={() => setSizeXFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
 							</button>
@@ -138,14 +132,8 @@ export default function MenuPage({
 							}}>
 								{sizeXFromLocalStorage}
 							</div>
-							<button style={{
-								width: '42px',
-								border: 'none',
-								background: '#061b24',
-								color: '#8fd9f0',
-								fontSize: '22px',
-								cursor: 'pointer'
-							}}
+							<button 
+								className="counterBtn"
 								onClick={() => setSizeXFromLocalStorage(v => v + 1)}>
 								+
 							</button>
@@ -158,14 +146,8 @@ export default function MenuPage({
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid height (number of rows)</span>
 						</div>
 						<div style={{ display: 'flex', marginLeft: 'auto' }}>
-							<button style={{
-								width: '42px',
-								border: 'none',
-								background: '#061b24',
-								color: '#8fd9f0',
-								fontSize: '22px',
-								cursor: 'pointer'
-							}}
+							<button 
+								className="counterBtn"
 								onClick={() => setSizeYFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
 							</button>
@@ -180,14 +162,8 @@ export default function MenuPage({
 							}}>
 								{sizeYFromLocalStorage}
 							</div>
-							<button style={{
-								width: '42px',
-								border: 'none',
-								background: '#061b24',
-								color: '#8fd9f0',
-								fontSize: '22px',
-								cursor: 'pointer'
-							}}
+							<button 
+								className="counterBtn"
 								onClick={() => setSizeYFromLocalStorage(v => v + 1)}>
 								+
 							</button>
@@ -200,14 +176,8 @@ export default function MenuPage({
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Size of each cell in pixels</span>
 						</div>
 						<div style={{ display: 'flex', marginLeft: 'auto' }}>
-							<button style={{
-								width: '42px',
-								border: 'none',
-								background: '#061b24',
-								color: '#8fd9f0',
-								fontSize: '22px',
-								cursor: 'pointer'
-							}}
+							<button 
+								className="counterBtn"
 								onClick={() => setCellSizePxFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
 							</button>
@@ -222,14 +192,8 @@ export default function MenuPage({
 							}}>
 								{cellSizePxFromLocalStorage}
 							</div>
-							<button style={{
-								width: '42px',
-								border: 'none',
-								background: '#061b24',
-								color: '#8fd9f0',
-								fontSize: '22px',
-								cursor: 'pointer'
-							}}
+							<button 
+								className="counterBtn"
 								onClick={() => setCellSizePxFromLocalStorage(v => v + 1)}>
 								+
 							</button>

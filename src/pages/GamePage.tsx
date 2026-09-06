@@ -115,22 +115,23 @@ export default function GamePage({
 		<div style={{ display: "flex", alignItems: "center", flexDirection: "column", margin: "0 auto", padding: '40px 45px' }}>
 			<div style={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', }}>
 				<Link
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						alignItems: 'center',
-						width: '130px',
-						height: '48px',
-						gap: '5px',
-						backgroundColor: '#000711',
-						border: '0.8px solid #025671',
-						borderRadius: '15px',
-						color: '#FFFFFF',
-						fontSize: '16px',
-						textDecoration: 'none',
-						cursor: 'pointer',
-						flexShrink: 0,
-					}}
+					// style={{
+					// 	display: 'flex',
+					// 	justifyContent: 'center',
+					// 	alignItems: 'center',
+					// 	width: '130px',
+					// 	height: '48px',
+					// 	gap: '5px',
+					// 	backgroundColor: '#000711',
+					// 	border: '0.8px solid #025671',
+					// 	borderRadius: '15px',
+					// 	color: '#FFFFFF',
+					// 	fontSize: '16px',
+					// 	textDecoration: 'none',
+					// 	cursor: 'pointer',
+					// 	flexShrink: 0,
+					// }}
+					className="menuBtn"
 					to="/"
 					onClick={() => {
 						const theBestScore = localStorage.getItem("theBestScore")
@@ -160,28 +161,46 @@ export default function GamePage({
 					src={`${import.meta.env.BASE_URL}img/logo-snake.png`}
 				/>
 			</div>
+			{game.gameOver
+				? <img
+					src={`${import.meta.env.BASE_URL}img/game-over.png`}
+					alt="GAME OVER"
+					style={{
+						width: '682px',
+						height: '188px',
+						marginBottom: '-70px',
+						position: 'relative',
+						zIndex: 1
+					}}
+				/>
+				: <div style={{
+					display: "flex",
+					flexDirection: 'column',
+					alignItems: 'center',
+					margin: '25px 0',
+					paddingTop: '8px',
+					width: '228px',
+					height: '60px',
+					border: '0.8px solid #025671',
+					borderRadius: '15px',
+					backgroundColor: '#001219'
+				}}>
+					<span style={{ color: '#FFFFFF', fontSize: '16px' }}>SCORE</span>
+					<span style={{ fontSize: '32px', color: '#B2E904' }}>{game.score}</span>
+				</div>}
 			<div style={{
-				display: "flex",
-				flexDirection: 'column',
-				alignItems: 'center',
-				margin: '25px 0',
-				paddingTop: '8px',
-				width: '228px',
-				height: '60px',
-				border: '0.8px solid #025671',
-				borderRadius: '15px',
-				backgroundColor: '#001219'
+				display: 'flex',
+				alignItems: 'flex-start',
+				justifyContent: 'space-between',
+				width: '100%',
+				marginBottom: '80px'
 			}}>
-				<span style={{ color: '#FFFFFF', fontSize: '16px' }}>SCORE</span>
-				<span style={{ fontSize: '32px', color: '#B2E904' }}>{game.score}</span>
-			</div>
-			<div style={{ display: 'flex', gap: '35px', alignItems: 'flex-start' }}>
 				<div style={{
 					display: 'flex',
 					flexDirection: 'column',
 					gap: '30px',
 					width: '196px',
-					background: '#001219',
+					background: 'rgba(0, 18, 25, 0.7)',
 					padding: '15px',
 					border: '1px solid #5F7D00',
 					borderRadius: '15px'
@@ -271,7 +290,7 @@ export default function GamePage({
 								// borderRadius: "50%"
 							}}>
 								{part.type === "head"
-									? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/head.png`} />
+									? game.gameOver ? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/game-over-head.png`} /> : <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/head.png`} />
 									: part.type === "tail"
 										? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/tail.png`} />
 										: <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/body.png`} />}
@@ -284,7 +303,7 @@ export default function GamePage({
 					flexDirection: 'column',
 					gap: '30px',
 					width: '196px',
-					background: '#001219',
+					background: 'rgba(0, 18, 25, 0.7)',
 					padding: '15px',
 					border: '1px solid #025671',
 					borderRadius: '15px'
@@ -307,44 +326,53 @@ export default function GamePage({
 					</div>
 				</div>
 			</div>
-			{isBtnStartVisible ? (
-				<div style={{ display: 'flex', gap: '25px' }}>
+			<footer
+				style={{
+					// position: 'fixed',
+					// bottom: 0,
+					display: 'flex',
+					justifyContent: 'center',
+					paddingBottom: '20px',
+				}}
+			>
+				{isBtnStartVisible ? (
+					<div style={{ display: 'flex', gap: '25px' }}>
+						<button
+							className="gameBtn gameBtn--start"
+							onClick={() => {
+								setBtnStartIsVisible(false)
+								setStart(true)
+							}}
+						>
+							<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/play.png`} />
+							START GAME
+						</button>
+						<button className="loadGameBtn" onClick={() => setIsDownloadFromFile(true)}>
+							<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/load-game.png`} />
+							<div style={{ display: 'flex', flexDirection: 'column' }}>
+								<span style={{ color: '#24D6DD', fontSize: '24px' }}>LOAD GAME</span>
+								<span style={{ color: '#47B3B3', fontSize: '16px' }}>Load from file</span>
+							</div>
+						</button>
+					</div>
+				) : (
 					<button
-						className="gameBtn gameBtn--start"
+						style={{
+							display: 'flex',
+							gap: '10px',
+							padding: '10px'
+						}}
+						className="gameBtn"
 						onClick={() => {
-							setBtnStartIsVisible(false)
-							setStart(true)
+							restartGame()
+							setBtnStartIsVisible(true)
 						}}
 					>
-						<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/play.png`} />
-						START GAME
+						<img style={{ width: '32px', height: '32px' }} src={`${import.meta.env.BASE_URL}img/restart.png`} />
+						RESTART
 					</button>
-					<button className="loadGameBtn" onClick={() => setIsDownloadFromFile(true)}>
-						<img style={{ width: '52px', height: '52px' }} src={`${import.meta.env.BASE_URL}img/load-game.png`} />
-						<div style={{ display: 'flex', flexDirection: 'column' }}>
-							<span style={{ color: '#24D6DD', fontSize: '24px' }}>LOAD GAME</span>
-							<span style={{ color: '#47B3B3', fontSize: '16px' }}>Load from file</span>
-						</div>
-					</button>
-				</div>
-			) : (
-				<button
-					style={{
-						display: 'flex',
-						gap: '10px',
-						padding: '10px'
-					}}
-					className="gameBtn"
-					onClick={() => {
-						restartGame()
-						setBtnStartIsVisible(true)
-					}}
-				>
-					<img style={{ width: '32px', height: '32px' }} src={`${import.meta.env.BASE_URL}img/restart.png`} />
-					RESTART
-				</button>
-			)}
-			{game.gameOver && <p>GAME OVER</p>}
+				)}
+			</footer>
 		</div>
 	)
 }
