@@ -11,7 +11,7 @@ export abstract class Food implements IFood {
     this.posYcl = posYcl
   }
 
-  generationFoodPosition(gridSizeYcl: number, gridSizeXcl: number) {
+  generationFoodPosition(gridSizeXcl: number, gridSizeYcl: number) {
     const maxXcl = Math.floor(gridSizeXcl)
     const maxYcl = Math.floor(gridSizeYcl)
     this.posXcl = Math.floor(Math.random() * maxXcl)

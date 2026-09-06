@@ -19,7 +19,7 @@ export class Snake implements ISnake {
     }
   }
 
-  generationSnakePosition(gridSizeYcl: number, gridSizeXcl: number) {
+  generationSnakePosition(gridSizeXcl: number, gridSizeYcl: number) {
     const min = 2
     const maxXcl = Math.floor(gridSizeXcl)
     const maxYcl = Math.floor(gridSizeYcl)

@@ -53,7 +53,7 @@ export class SnakeGame implements ISnakeGame {
 
       if (ate) {
         this.snake.setPartsViaEatting()
-        this.food.generationFoodPosition(this.grid.sizeYcl, this.grid.sizeXcl)
+        this.food.generationFoodPosition(this.grid.sizeXcl, this.grid.sizeYcl)
         this.score += 1
         this.score2 = String(this.score)
 

@@ -18,42 +18,30 @@ export default function App({ game }: { game: ISnakeGame }) {
   const [sizeYcl, setSizeY] = useState(initialSizeY)
   const [cellSizePx, setCellSize] = useState(initialCellSize)
 
+  const useStoredGrid = localStorage.getItem("sizeXcl") != null || localStorage.getItem("sizeYcl") != null || localStorage.getItem("cellSizePx") != null
+
   const [initGame, setInitGame] = useState<ISnakeGame>(() => {
     const grid = new Grid(initialSizeX, initialSizeY, initialCellSize)
-    const food = new AppleFood(game.food.posXcl, game.food.posYcl)
-    const block = new StoneBlock(game.block.posXcl, game.block.posYcl)
-    const snake = new Snake(
-      game.snake.getParts()[0].posXcl,
-      game.snake.getParts()[0].posYcl,
-      game.snake.getLength()
-    )
-    return new SnakeGame(grid, food, block, snake)
+    if (useStoredGrid) {
+      game.food.generationFoodPosition(sizeXcl, sizeYcl)
+      const food = new AppleFood(game.food.posXcl, game.food.posYcl)
+      game.block.generationBlockPosition(sizeXcl, sizeYcl)
+      const block = new StoneBlock(game.block.posXcl, game.block.posYcl)
+      game.snake.generationSnakePosition(sizeXcl, sizeYcl)
+      const snake = new Snake(game.snake.startXcl, game.snake.startYcl, 3)
+      return new SnakeGame(grid, food, block, snake)
+    }
+    else {
+      const food = new AppleFood(game.food.posXcl, game.food.posYcl)
+      const block = new StoneBlock(game.block.posXcl, game.block.posYcl)
+      const snake = new Snake(
+        game.snake.getParts()[0].posXcl,
+        game.snake.getParts()[0].posYcl,
+        game.snake.getLength()
+      )
+      return new SnakeGame(grid, food, block, snake)
+    }
   })
-
-  // const [initGame, setInitGame] = useState<ISnakeGame>(game)
-  // const [sizeXcl, setSizeX] = useState(initGame.grid.sizeXcl)
-  // const [sizeYcl, setSizeY] = useState(initGame.grid.sizeYcl)
-  // const [cellSizePx, setCellSize] = useState(initGame.grid.cellSizePx)
-
-  // const applyGridSize = () => {
-  //   const newGrid = new Grid(sizeXcl, sizeYcl, cellSizePx)
-  //   const newFood = new AppleFood(
-  //     Math.min(newGrid.sizeXcl - 1, initGame.food.posXcl),
-  //     Math.min(newGrid.sizeYcl - 1, initGame.food.posYcl)
-  //   )
-  //   const newBlock = new StoneBlock(
-  //     Math.min(newGrid.sizeXcl - 1, initGame.block.posXcl),
-  //     Math.min(newGrid.sizeYcl - 1, initGame.block.posYcl)
-  //   )
-  //   const newSnake = new Snake(
-  //     Math.min(newGrid.sizeXcl - 1, initGame.snake.getParts()[0].posXcl),
-  //     Math.min(newGrid.sizeYcl - 1, initGame.snake.getParts()[0].posYcl),
-  //     initGame.snake.getLength()
-  //   )
-  //   const newGame = new SnakeGame(newGrid, newFood, newBlock, newSnake)
-  //   setInitGame(newGame)
-  //   console.log(sizeXcl)
-  // }
 
   const applyGridSize = (x: number, y: number, cell: number) => {
     const newGrid = new Grid(x, y, cell)

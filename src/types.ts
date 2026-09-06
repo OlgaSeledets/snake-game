@@ -24,7 +24,7 @@ export interface IBlock {
   type: string
   posXcl: number
   posYcl: number
-  generationBlockPosition(gridSizeYcl: number, gridSizeXcl: number): void
+  generationBlockPosition(gridSizeXcl: number, gridSizeYcl: number): void
 }
 
 export type direction = "right" | "left" | "up" | "down"
@@ -32,7 +32,7 @@ export type direction = "right" | "left" | "up" | "down"
 export interface ISnake {
   startXcl: number
   startYcl: number
-  generationSnakePosition(gridSizeYcl: number, gridSizeXcl: number): void
+  generationSnakePosition(gridSizeXcl: number, gridSizeYcl: number): void
   getLength(): number
   getParts(): Array<ISnakePart>
   // setPartsViaEatting(prevParts: Array<ISnakePart>, food: { posXcl: number; posYcl: number }): Array<ISnakePart>
@@ -62,5 +62,5 @@ export interface IFood {
   type: string
   posXcl: number
   posYcl: number
-  generationFoodPosition(gridSizeYcl: number, gridSizeXcl: number): void
+  generationFoodPosition(gridSizeXcl: number, gridSizeYcl: number): void
 }

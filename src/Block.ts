@@ -11,7 +11,7 @@ export abstract class Block implements IBlock {
     this.posYcl = posYcl
   }
 
-  generationBlockPosition(gridSizeYcl: number, gridSizeXcl: number) {
+  generationBlockPosition(gridSizeXcl: number, gridSizeYcl: number) {
     const maxXcl = Math.floor(gridSizeXcl)
     const maxYcl = Math.floor(gridSizeYcl)
     this.posXcl = Math.floor(Math.random() * maxXcl)
