@@ -82,6 +82,7 @@ export default function MenuPage({
 				marginTop: '65px',
 				borderRadius: '25px',
 				boxShadow: '0px 4px 10px 0px rgba(0, 187, 255, 0.5)',
+				marginBottom: '33px'
 			}}>
 				<div style={{
 					display: 'flex',
@@ -132,7 +133,7 @@ export default function MenuPage({
 							}}>
 								{sizeXFromLocalStorage}
 							</div>
-							<button 
+							<button
 								className="counterBtn"
 								onClick={() => setSizeXFromLocalStorage(v => v + 1)}>
 								+
@@ -146,7 +147,7 @@ export default function MenuPage({
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Grid height (number of rows)</span>
 						</div>
 						<div style={{ display: 'flex', marginLeft: 'auto' }}>
-							<button 
+							<button
 								className="counterBtn"
 								onClick={() => setSizeYFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
@@ -162,7 +163,7 @@ export default function MenuPage({
 							}}>
 								{sizeYFromLocalStorage}
 							</div>
-							<button 
+							<button
 								className="counterBtn"
 								onClick={() => setSizeYFromLocalStorage(v => v + 1)}>
 								+
@@ -176,7 +177,7 @@ export default function MenuPage({
 							<span style={{ color: '#4D575E', fontSize: '14px', fontWeight: 600 }}>Size of each cell in pixels</span>
 						</div>
 						<div style={{ display: 'flex', marginLeft: 'auto' }}>
-							<button 
+							<button
 								className="counterBtn"
 								onClick={() => setCellSizePxFromLocalStorage(v => Math.max(5, v - 1))}>
 								−
@@ -192,7 +193,7 @@ export default function MenuPage({
 							}}>
 								{cellSizePxFromLocalStorage}
 							</div>
-							<button 
+							<button
 								className="counterBtn"
 								onClick={() => setCellSizePxFromLocalStorage(v => v + 1)}>
 								+

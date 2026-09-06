@@ -115,22 +115,6 @@ export default function GamePage({
 		<div style={{ display: "flex", alignItems: "center", flexDirection: "column", margin: "0 auto", padding: '40px 45px' }}>
 			<div style={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', }}>
 				<Link
-					// style={{
-					// 	display: 'flex',
-					// 	justifyContent: 'center',
-					// 	alignItems: 'center',
-					// 	width: '130px',
-					// 	height: '48px',
-					// 	gap: '5px',
-					// 	backgroundColor: '#000711',
-					// 	border: '0.8px solid #025671',
-					// 	borderRadius: '15px',
-					// 	color: '#FFFFFF',
-					// 	fontSize: '16px',
-					// 	textDecoration: 'none',
-					// 	cursor: 'pointer',
-					// 	flexShrink: 0,
-					// }}
 					className="menuBtn"
 					to="/"
 					onClick={() => {
@@ -284,10 +268,6 @@ export default function GamePage({
 								position: "absolute",
 								left: `${part.posXcl * cellSizePx}px`,
 								top: `${part.posYcl * cellSizePx}px`,
-								// width: `${cellSizePx}px`,
-								// height: `${cellSizePx}px`,
-								// backgroundColor: part.type === "head" ? "darkBlue" : "blue",
-								// borderRadius: "50%"
 							}}>
 								{part.type === "head"
 									? game.gameOver ? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/game-over-head.png`} /> : <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/head.png`} />
@@ -328,11 +308,8 @@ export default function GamePage({
 			</div>
 			<footer
 				style={{
-					// position: 'fixed',
-					// bottom: 0,
 					display: 'flex',
 					justifyContent: 'center',
-					paddingBottom: '20px',
 				}}
 			>
 				{isBtnStartVisible ? (
