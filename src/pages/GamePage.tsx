@@ -177,7 +177,6 @@ export default function GamePage({
 				alignItems: 'flex-start',
 				justifyContent: 'space-between',
 				width: '100%',
-				marginBottom: '80px'
 			}}>
 				<div style={{
 					display: 'flex',
@@ -223,59 +222,69 @@ export default function GamePage({
 						</div>
 					</div>
 				</div>
-				<div style={{
-					border: '2px solid #B2E904',
-					borderRadius: '15px',
-					padding: '7px',
-					backgroundColor: '#001219'
-				}}>
-					<div style={{ position: "relative", width: `${gridSizeXpx}px`, height: `${gridSizeYpx}px`, backgroundColor: "green" }}>
-						{game.grid.getCells().map((x, i) => (
-							<div key={i} style={{
-								position: "absolute",
-								left: `${x.posXcl * cellSizePx}px`,
-								top: `${x.posYcl * cellSizePx}px`,
-								width: `${cellSizePx}px`,
-								height: `${cellSizePx}px`,
-								border: "1px solid black",
-								fontSize: "6px"
-							}} />
-						))}
-						<img
-							src={`${import.meta.env.BASE_URL}img/apple-food.png`}
-							alt="apple"
-							style={{
-								position: "absolute",
-								left: `${game.food.posXcl * cellSizePx + ((cellSizePx - cellSizePx / 1.4) / 2)}px`,
-								top: `${game.food.posYcl * cellSizePx + ((cellSizePx - cellSizePx / 1.4) / 2)}px`,
-								width: `${cellSizePx / 1.4}px`,
-								height: `${cellSizePx / 1.4}px`
-							}}
-						/>
-						<img
-							src={`${import.meta.env.BASE_URL}img/stone.png`}
-							alt="stone"
-							style={{
-								position: "absolute",
-								left: `${game.block.posXcl * cellSizePx + 1}px`,
-								top: `${game.block.posYcl * cellSizePx + 1}px`,
-								width: `${cellSizePx}px`,
-								height: `${cellSizePx}px`,
-							}}
-						/>
-						{parts.map((part, i) => (
-							<div key={i} style={{
-								position: "absolute",
-								left: `${part.posXcl * cellSizePx}px`,
-								top: `${part.posYcl * cellSizePx}px`,
-							}}>
-								{part.type === "head"
-									? game.gameOver ? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/game-over-head.png`} /> : <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/head.png`} />
-									: part.type === "tail"
-										? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/tail.png`} />
-										: <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/body.png`} />}
-							</div>
-						))}
+				<div style={{ textAlign: 'center' }}>
+					<div style={{
+						border: '2px solid #B2E904',
+						borderRadius: '15px',
+						padding: '7px',
+						backgroundColor: '#001219'
+					}}>
+						<div style={{ position: "relative", width: `${gridSizeXpx}px`, height: `${gridSizeYpx}px`, backgroundColor: "green" }}>
+							{game.grid.getCells().map((x, i) => (
+								<div key={i} style={{
+									position: "absolute",
+									left: `${x.posXcl * cellSizePx}px`,
+									top: `${x.posYcl * cellSizePx}px`,
+									width: `${cellSizePx}px`,
+									height: `${cellSizePx}px`,
+									border: "1px solid black",
+									fontSize: "6px"
+								}} />
+							))}
+							<img
+								src={`${import.meta.env.BASE_URL}img/apple-food.png`}
+								alt="apple"
+								style={{
+									position: "absolute",
+									left: `${game.food.posXcl * cellSizePx + ((cellSizePx - cellSizePx / 1.4) / 2)}px`,
+									top: `${game.food.posYcl * cellSizePx + ((cellSizePx - cellSizePx / 1.4) / 2)}px`,
+									width: `${cellSizePx / 1.4}px`,
+									height: `${cellSizePx / 1.4}px`
+								}}
+							/>
+							<img
+								src={`${import.meta.env.BASE_URL}img/stone.png`}
+								alt="stone"
+								style={{
+									position: "absolute",
+									left: `${game.block.posXcl * cellSizePx + 1}px`,
+									top: `${game.block.posYcl * cellSizePx + 1}px`,
+									width: `${cellSizePx}px`,
+									height: `${cellSizePx}px`,
+								}}
+							/>
+							{parts.map((part, i) => (
+								<div key={i} style={{
+									position: "absolute",
+									left: `${part.posXcl * cellSizePx}px`,
+									top: `${part.posYcl * cellSizePx}px`,
+								}}>
+									{part.type === "head"
+										? game.gameOver ? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/game-over-head.png`} /> : <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/head.png`} />
+										: part.type === "tail"
+											? <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/tail.png`} />
+											: <img style={{ width: `${cellSizePx}px`, height: `${cellSizePx}px` }} src={`${import.meta.env.BASE_URL}img/body.png`} />}
+								</div>
+							))}
+						</div>
+					</div>
+					<div>
+						<span style={{
+							fontSize: '14px',
+							color: 'rgba(178, 233, 4, 0.5)'
+						}}>
+							GRID {sizeXcl} × {sizeYcl} • CELL {cellSizePx}px
+						</span>
 					</div>
 				</div>
 				<div style={{
@@ -310,6 +319,7 @@ export default function GamePage({
 				style={{
 					display: 'flex',
 					justifyContent: 'center',
+					marginTop: '80px'
 				}}
 			>
 				{isBtnStartVisible ? (
