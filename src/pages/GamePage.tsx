@@ -67,7 +67,7 @@ export default function GamePage({
 
 	useEffect(() => {
 		if (!isDownloadFromFile) return
-		fetch("./src/gameFromJson.json")
+		fetch(`${import.meta.env.BASE_URL}gameFromJson.json`)
 			.then(result => result.json())
 			.then(jsonData => {
 				const newGame = new SnakeGame(
