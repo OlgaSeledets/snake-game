@@ -6,12 +6,12 @@ import { Grid } from './Grid.js'
 import { AppleFood } from './Food.js'
 import { StoneBlock } from './Block.js'
 import { Snake } from './Snake.js'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/snake-game">
+    <HashRouter>
       <App game={new SnakeGame(new Grid(20, 20, 24), new AppleFood(5, 4), new StoneBlock(2, 3), new Snake(4, 13, 3))} />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )
