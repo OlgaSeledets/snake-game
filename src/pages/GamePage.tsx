@@ -112,7 +112,14 @@ export default function GamePage({
 	}
 
 	return (
-		<div style={{ display: "flex", alignItems: "center", flexDirection: "column", margin: "0 auto", padding: '40px 45px' }}>
+		<div style={{ 
+			display: "flex", 
+			alignItems: "center", 
+			flexDirection: "column", 
+			margin: "0 auto", 
+			padding: '40px 45px',
+			minHeight: '85vh' 
+		}}>
 			<div style={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', }}>
 				<Link
 					className="menuBtn"
@@ -177,6 +184,8 @@ export default function GamePage({
 				alignItems: 'flex-start',
 				justifyContent: 'space-between',
 				width: '100%',
+				flex: 1,
+				marginBottom: '40px'
 			}}>
 				<div style={{
 					display: 'flex',
@@ -319,7 +328,6 @@ export default function GamePage({
 				style={{
 					display: 'flex',
 					justifyContent: 'center',
-					marginTop: '80px'
 				}}
 			>
 				{isBtnStartVisible ? (
